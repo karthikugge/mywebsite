@@ -520,41 +520,7 @@ td strong {
 }
 
 /* ===== Responsive (mobile cards) ===== */
-@media (max-width: 920px) {
-  thead { display: none; }
-  table, tbody, tr, td { display: block; width: 100%; }
 
-  tbody tr {
-    margin: 14px 0;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: var(--card);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  }
-
-  tbody td {
-    border-bottom: 1px solid var(--line);
-    padding: 12px 14px 12px 140px;
-    position: relative;
-  }
-  tbody td:last-child { border-bottom: none; }
-
-  tbody td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 12px;
-    top: 12px;
-    width: 120px;
-    font-weight: 600;
-    color: var(--muted);
-  }
-
-  td.phase {
-    padding-left: 14px;
-    border-radius: 12px 12px 0 0;
-    color: #fff;
-  }
-}
 
 /* ===== Milestone Tags ===== */
 .foot {
