@@ -110,130 +110,6 @@ body {
     background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
     animation: gradientFadeDark 8s ease-in-out infinite;
 }
-/* ===== About Page Styles ===== */
-
-/* Container */
-.hero {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 2rem 1rem;
-}
-
-/* Card wrapper (for skills, timeline, side projects) */
-.card {
-  background: var(--card);
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-  padding: 1.5rem;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-/* ===== Skills ===== */
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.skill {
-  background: rgba(124, 58, 237, 0.1);
-  color: var(--accent);
-  padding: 6px 14px;
-  border-radius: 999px; /* full pill */
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-}
-
-.skill:hover {
-  background: rgba(124, 58, 237, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-/* ===== Section Titles ===== */
-.section-title {
-  margin: 0 0 0.8rem;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--accent);
-}
-
-/* ===== Timeline ===== */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  position: relative;
-  padding-left: 24px; /* space for vertical line */
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: rgba(124, 58, 237, 0.3);
-}
-
-.timeline-item {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s ease;
-  position: relative;
-}
-
-.timeline-item.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 8px rgba(124, 58, 237, 0.6);
-  flex-shrink: 0;
-  margin-top: 4px;
-}
-
-.t-body {
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.t-meta {
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-.t-desc {
-  margin-top: 6px;
-  font-size: 0.9rem;
-  color: var(--muted);
-  line-height: 1.4;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .hero {
-    padding: 1.5rem 1rem;
-    gap: 1.5rem;
-  }
-}
-
-/* ===== NAVBAR ===== */
 nav {
   position: fixed;
   top: 0;
@@ -412,6 +288,163 @@ nav.scrolled .logotxt {
 
   .logo { position: relative; left: auto; transform: none; }
 }
+/* ===== About Page Styles ===== */
+
+/* Container */
+.hero {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+/* Fade-in for cards */
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Timeline already has animation logic (using .show), so no extra needed */
+
+/* Card wrapper (for skills, timeline, side projects) */
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  padding: 1.5rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ===== Skills ===== */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill {
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--accent);
+  padding: 6px 14px;
+  border-radius: 999px; /* full pill */
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.skill:hover {
+  background: rgba(124, 58, 237, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Section Titles ===== */
+.section-title {
+  margin: 0 0 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ===== Timeline ===== */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  padding-left: 24px; /* space for vertical line */
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(124, 58, 237, 0.3);
+}
+
+.timeline-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+.timeline-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.6);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.t-body {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.t-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.t-desc {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.social-links {
+  display: flex;
+  justify-content: space-around; /* even spacing */
+  align-items: center;
+  gap: 1.5rem; /* space between icons */
+  margin-top: 1rem;
+}
+
+.social-links a img {
+  width: 40px;   /* increased size */
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.social-links a:hover img {
+  transform: scale(1.2); /* zoom on hover */
+  opacity: 0.8;          /* subtle fade */
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+}
+
+/* ===== NAVBAR ===== */
+/* ===== TOGGLE SWITCH FIXES ===== */
+
+/* Toggle container - ensure proper positioning */
+
 footer {
   background: var(--dark-yellow);
   color: white;
@@ -545,3 +578,67 @@ footer * {
     padding: 15px;
   }
 }
+.pcontainer{
+    display:flex;
+    width:90vw;
+
+
+
+  }
+  /* Ensure parent card wraps content */
+.card .pcontainer {
+  display: flex;
+  gap: 1rem;
+  height: 100%;       /* fixed height */
+  max-width: 100%;     /* never exceed card width */
+  overflow: hidden;    /* hide overflow */
+  border-radius: 14px; /* match card corners */
+}
+
+.panel{
+    background-size:auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:80vh;
+    border-radius: 50px;
+    color: white;
+    cursor:pointer;
+    flex:0.5;
+    margin:10px;
+    position:relative;
+    transition: flex 0.7s ease-in;
+}
+.panel h3{
+    font-size:24px;
+    position:absolute;
+    bottom:20px;
+    left:20px;
+    margin:0;
+    opacity:0;
+}
+.panel.active{
+
+    flex:5;
+}
+.panel.active h3{
+    opacity:1;
+}
+@media (max-width: 768px) {
+  .pcontainer {
+    flex-direction: column;  /* stack vertically */
+    height: auto;            /* let children decide */
+  }
+
+  .panel {
+    flex: none !important;   /* 🚨 disable flex growth */
+    height: 90px;            /* collapsed height */
+    width: 100%;
+    transition: height 0.5s ease, filter 0.3s ease;
+  }
+
+  .panel.active {
+    height: 240px;           /* expanded height */
+    filter: brightness(1);
+  }
+}
+
